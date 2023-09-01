@@ -5,8 +5,7 @@ export const resolveRemote = (
   remoteScope: string,
   remoteModuleName: string
 ) => {
-  // TODO:
-  // Fetch this from an API
+  // TODO: Fetch remote config from an API
   const remotesMap = {
     remote_profile: {
       url: "http://localhost:3001/assets/remoteEntry.js",
@@ -31,7 +30,7 @@ export const resolveRemote = (
     const webpackGet = (name) =>
       metaGet(name).then((module) => () => module?.default ?? module);
 
-    // TODO:
+    // TODO: Shared dependencies in dev mode
     // Sharing libraries is going to be incredibly difficult
     // as there is no process bundling libraries during dev
     // mode. This might not be possible in pure dev mode at
