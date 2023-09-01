@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import federation from "@originjs/vite-plugin-federation";
+import topLevelAwait from "vite-plugin-top-level-await";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -9,7 +10,10 @@ export default defineConfig({
     federation({
       name: "host",
       remotes: {
-        remote_profile: "http://localhost:3001/assets/remoteEntry.js",
+        remote_profile: {
+          external: "Promise.resolve('')",
+          externalType: "promise",
+        },
       },
       shared: {
         context: {
@@ -17,5 +21,6 @@ export default defineConfig({
         },
       },
     }),
+    topLevelAwait(),
   ],
 });
