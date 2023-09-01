@@ -1,7 +1,6 @@
+import React, { Suspense, useState } from "react";
 import { NameProvider } from "context";
-import { useState } from "react";
-// @ts-ignore
-import Profile from "remote_profile/Profile";
+const Profile = React.lazy(() => import("remote_profile/Profile"));
 
 function App() {
   const [name, setName] = useState("");
@@ -14,7 +13,9 @@ function App() {
         value={name}
       />
       <NameProvider value={name}>
-        <Profile />
+        <Suspense fallback={<div>Loading...</div>}>
+          <Profile />
+        </Suspense>
       </NameProvider>
     </>
   );
