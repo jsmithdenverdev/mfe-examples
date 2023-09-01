@@ -1,3 +1,10 @@
+import { useName } from "context";
 export default function Profile() {
-  return <h1>Profile 1</h1>;
+  const name = useName();
+  return (
+    <div>
+      <h1>Profile</h1>
+      <h2>{name}</h2>
+    </div>
+  );
 }

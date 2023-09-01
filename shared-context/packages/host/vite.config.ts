@@ -11,6 +11,11 @@ export default defineConfig({
       remotes: {
         remote_profile: "http://localhost:3001/assets/remoteEntry.js",
       },
+      shared: {
+        context: {
+          requiredVersion: "1.0.0",
+        },
+      },
     }),
   ],
 });
