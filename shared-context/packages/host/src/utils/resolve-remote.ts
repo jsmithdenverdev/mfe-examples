@@ -5,6 +5,8 @@ export const resolveRemote = (
   remoteScope: string,
   remoteModuleName: string
 ) => {
+  // TODO:
+  // Fetch this from an API
   const remotesMap = {
     remote_profile: {
       url: "http://localhost:3001/assets/remoteEntry.js",
