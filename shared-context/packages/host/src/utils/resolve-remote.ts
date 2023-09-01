@@ -7,7 +7,7 @@ export const resolveRemote = (
 ) => {
   const remotesMap = {
     remote_profile: {
-      url: "http://localhost:3002/assets/remoteEntry.js",
+      url: "http://localhost:3001/assets/remoteEntry.js",
       format: "esm",
     },
   };
@@ -50,7 +50,10 @@ export const resolveRemote = (
   // };
 
   async function __federation_import(name) {
-    return __vitePreload(() => import(name), true ? [] : void 0);
+    return __vitePreload(
+      () => import(/* @vite-ignore */ name),
+      true ? [] : void 0
+    );
   }
 
   var __federation__ = {
@@ -94,7 +97,7 @@ export const resolveRemote = (
   };
 
   remotesMap["remote_profile"] = {
-    url: "http://localhost:3002/assets/remoteEntry.js",
+    url: "http://localhost:3001/assets/remoteEntry.js",
     format: "esm",
   };
 
