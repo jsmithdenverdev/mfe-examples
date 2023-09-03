@@ -15,7 +15,10 @@ export const resolveRemote = (
 
   // The __vitePreload function is generated at build time, so we need to
   // monkey patch it for dev mode.
-  if (import.meta.DEV) {
+  if (import.meta.env.DEV) {
+    // TODO Get dev mode dependencies working and remove error
+    throw new Error("Currently only production builds support resolve-remote.");
+
     const loadJS = (url, fn) => {
       const script = document.createElement("script");
       script.type = "text/javascript";
@@ -38,8 +41,8 @@ export const resolveRemote = (
     const shareScope = {
       context: {
         "1.0.0": {
-          metaGet: () => null,
-          get: () => null,
+          metaGet: () => metaGet(""),
+          get: () => webpackGet(""),
           loaded: 1,
         },
       },

@@ -1,10 +1,10 @@
 import { Suspense, useState } from "react";
 import { NameProvider } from "context";
+import Dev from "./Dev";
 import RemoteModule from "./components/RemoteModule";
 
 function App() {
   const [name, setName] = useState("");
-
   return (
     <>
       <input
@@ -14,7 +14,11 @@ function App() {
       />
       <NameProvider value={name}>
         <Suspense fallback={<div>Loading...</div>}>
-          <RemoteModule scope="remote_profile" module="Profile" />
+          {import.meta.env.DEV ? (
+            <Dev />
+          ) : (
+            <RemoteModule scope="remote_profile" module="Profile" />
+          )}
         </Suspense>
       </NameProvider>
     </>
