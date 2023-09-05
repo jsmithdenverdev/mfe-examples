@@ -1,0 +1,7 @@
+{
+  "remotes": {
+    "remote_profile": {
+      "url": "http://localhost:4174/assets/remoteEntry.js"
+    }
+  }
+}
