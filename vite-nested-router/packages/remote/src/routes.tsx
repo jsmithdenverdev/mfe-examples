@@ -13,7 +13,7 @@ const routes: RouteObject[] = [
       //   loader: rocketListLoader,
       // },
       {
-        path: "",
+        index: true,
         async lazy() {
           const { default: Component, loader } = await import(
             "./pages/RocketList"
