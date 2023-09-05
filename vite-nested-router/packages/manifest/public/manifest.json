@@ -1,0 +1,7 @@
+{
+  "remotes": {
+    "remote_app": {
+      "url": "http://localhost:4174/assets/remoteEntry.js"
+    }
+  }
+}
